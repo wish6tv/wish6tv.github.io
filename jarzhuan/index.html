@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAR转APK格式转换器 - 在线Java应用转换与安卓部署指南</title>
+    <meta name="description" content="提供专业的JAR转APK格式转换器在线工具及详细教程，支持将Java游戏、应用及JAR文件一键转换为安卓APK格式，解决安卓设备无法直接运行JAR文件的问题。">
+    <meta name="keywords" content="JAR转APK格式转换器,Java转APK,安卓转换器,JAR转APK在线,APK转换工具">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary-color: #64748b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --border-color: #e2e8f0;
+            --accent-green: #10b981;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(180deg, #eff6ff 0%, var(--bg-color) 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .upload-box {
+            background: var(--card-bg);
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius);
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .upload-box.drag-over {
+            border-color: var(--primary-color);
+            background-color: #eff6ff;
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .upload-text {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .upload-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .upload-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .upload-hint {
+            margin-top: 16px;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* How it Works */
+        .steps {
+            background-color: white;
+            padding: 60px 0;
+        }
+
+        .step-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .step-container::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background: var(--border-color);
+            z-index: 0;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .step-container::before {
+                display: block;
+            }
+        }
+
+        .step-item {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            min-width: 200px;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--card-bg);
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step-item h3 {
+            margin-bottom: 10px;
+        }
+
+        .step-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 60px 0;
+            background-color: var(--bg-color);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 16px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            display: none;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-main);
+            color: #94a3b8;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .step-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step-container::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            <span>APK转换大师</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#tool">在线转换</a>
+            <a href="#features">功能特点</a>
+            <a href="#guide">使用指南</a>
+            <a href="#faq">常见问题</a>
+        </nav>
+        <a href="#tool" class="cta-btn">立即转换</a>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>JAR转APK格式转换器<br><span class="highlight">让经典Java游戏在安卓手机上重生</span></h1>
+            <p>无需安装复杂的开发环境，支持一键将 .jar 文件转换为标准 Android APK 安装包。无论是老式手机游戏还是 Java 小程序，都能轻松在您的安卓设备上运行。</p>
+            
+            <div class="upload-box" id="drop-zone">
+                <div class="upload-icon">📦</div>
+                <div class="upload-text">点击上传或拖拽 JAR 文件到此处</div>
+                <button class="upload-btn" onclick="document.getElementById('file-input').click()">选择文件</button>
+                <input type="file" id="file-input" accept=".jar" style="display: none;">
+                <p class="upload-hint">支持最大 50MB 的文件，文件处理在本地浏览器完成，安全无忧。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>为什么选择我们的转换器</h2>
+                <p>专为 Java 应用与游戏爱好者设计，提供稳定、高效的转换方案</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>极速转换</h3>
+                    <p>采用优化的转换算法，大幅缩短文件处理时间，无需等待即可获得结果。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>本地处理安全</h3>
+                    <p>您的文件不会上传到服务器，所有转换操作均在您的浏览器本地完成，保护隐私安全。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>完美兼容</h3>
+                    <p>生成的 APK 文件适配主流安卓系统版本，兼容性高，安装成功率接近 100%。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>自定义配置</h3>
+                    <p>提供基础的版本信息设置（如应用名称、图标），让转换后的软件更符合您的需求。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="guide" class="steps">
+        <div class="container">
+            <div class="section-header">
+                <h2>转换流程</h2>
+                <p>仅需三步，即可完成从 JAR 到 APK 的跨越</p>
+            </div>
+            <div class="step-container">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>上传文件</h3>
+                    <p>打开本页面，将需要转换的 JAR 文件拖入虚线框或点击选择文件。</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>配置参数</h3>
+                    <p>填写应用名称和选择目标图标，点击开始转换按钮启动处理。</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>下载安装</h3>
+                    <p>转换完成后，下载生成的 APK 文件，直接在手机上安装即可运行。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>常见问题解答</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        转换后的 APK 文件能直接在手机上安装吗？
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        是的，生成的 APK 文件是完全标准的安卓安装包格式。只要您的手机开启了“允许安装未知来源应用”的权限，就可以直接下载并安装运行。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        JAR 转 APK 有什么限制？
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        由于 Java 和 Android 底层架构的差异，部分依赖原生系统库或特定硬件加速的 JAR 游戏可能无法完美转换，或者运行效果不如原机。对于大多数文字类应用和简单的 2D 游戏，转换成功率很高。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        转换过程需要多长时间？
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        处理时间取决于文件大小和您的设备性能。通常情况下，几 MB 到几十 MB 的文件，转换过程只需几秒钟到十几秒不等。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        我可以用这个工具转换 .jad 文件吗？
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        .jad 文件通常只包含描述信息，真正的程序代码在 .jar 包中。如果您有 .jad 文件，建议直接找到对应的 .jar 文件进行转换，或者使用专业的 JAD 生成工具从 JAR 中提取描述信息。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>关于工具</h4>
+                <ul>
+                    <li><a href="#">使用条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">联系方式</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>资源支持</h4>
+                <ul>
+                    <li><a href="#">转换教程</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">安卓安装指南</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>支持格式</h4>
+                <ul>
+                    <li>JAR (Java Archive)</li>
+                    <li>JAD (Java Descriptor)</li>
+                    <li>APK (Android Package)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 APK转换大师. All rights reserved. 本站仅提供在线转换服务，不存储任何用户文件。</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // FAQ Toggle Logic
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            // Close all other items
+            faqItems.forEach(i => i.classList.remove('active'));
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // Drag and Drop Logic
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('drag-over');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('drag-over');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('drag-over');
+        if (e.dataTransfer.files.length) {
+            handleFiles(e.dataTransfer.files);
+        }
+    });
+
+    fileInput.addEventListener('change', () => {
+        if (fileInput.files.length) {
+            handleFiles(fileInput.files);
+        }
+    });
+
+    function handleFiles(files) {
+        const file = files[0];
+        if (file && file.name.toLowerCase().endsWith('.jar')) {
+            // Simulate processing UI feedback
+            const uploadText = dropZone.querySelector('.upload-text');
+            const uploadBtn = dropZone.querySelector('.upload-btn');
+            
+            uploadText.textContent = `正在处理: ${file.name}...`;
+            uploadBtn.style.display = 'none';
+            dropZone.style.borderColor = 'var(--accent-green)';
+            
+            // Simulate async process
+            setTimeout(() => {
+                uploadText.textContent = '转换成功！文件已准备就绪。';
+                uploadText.style.color = 'var(--accent-green)';
+                dropZone.style.borderColor = 'var(--accent-green)';
+                // In a real app, this would trigger a download
+            }, 2000);
+        } else {
+            alert('请上传有效的 .jar 格式文件。');
+        }
+    }
+</script>
+
+</body>
+</html>
