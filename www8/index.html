@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>80s-经典老电影与怀旧影视资源站</title>
+    <meta name="description" content="80s为您提供80年代经典老电影、怀旧电视剧及经典综艺资源的在线观看与下载服务。重温经典，感受时代的影视魅力。">
+    <meta name="keywords" content="80s,老电影,经典电影,怀旧影视,80年代电视剧,经典综艺">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #d32f2f; /* 经典红色调 */
+            --accent-hover: #b71c1c;
+            --border-color: #333;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-primary);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-primary);
+        }
+
+        .search-bar {
+            display: flex;
+            background: #2c2c2c;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            padding: 6px 12px;
+            color: var(--text-primary);
+            outline: none;
+            font-size: 14px;
+            width: 200px;
+        }
+
+        .search-bar button {
+            border: none;
+            background: var(--accent-color);
+            color: white;
+            padding: 0 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-bar button:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: var(--spacing-unit);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: var(--spacing-unit);
+            background-color: #000;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: transform 0.5s ease;
+        }
+
+        .hero:hover .hero-bg {
+            transform: scale(1.05);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+
+        .hero-tag {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 8px;
+            font-size: 12px;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 12px;
+            width: fit-content;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            color: #ddd;
+            max-width: 800px;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            border-color: white;
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Section Layout */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .view-all:hover {
+            color: var(--accent-color);
+        }
+
+        /* Movie Grid */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .movie-card {
+            background-color: var(--card-bg);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+            border-color: #333;
+        }
+
+        .card-poster {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background-color: #333;
+            position: relative;
+        }
+
+        .card-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-info {
+            padding: 12px;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .quality-tag {
+            color: #ffd700;
+        }
+
+        /* Category List */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .category-item {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .category-item:hover {
+            background-color: #252525;
+        }
+
+        .category-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .category-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Ranking List */
+        .ranking-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 12px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .ranking-item:hover {
+            background-color: #252525;
+        }
+
+        .rank-num {
+            font-size: 18px;
+            font-weight: bold;
+            width: 30px;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .rank-num.top-1 { color: #ffd700; }
+        .rank-num.top-2 { color: #c0c0c0; }
+        .rank-num.top-3 { color: #cd7f32; }
+
+        .rank-poster {
+            width: 50px;
+            height: 70px;
+            border-radius: 3px;
+            margin-right: 15px;
+            object-fit: cover;
+            background-color: #333;
+        }
+
+        .rank-info {
+            flex: 1;
+        }
+
+        .rank-title {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .rank-tags span {
+            font-size: 12px;
+            background: #333;
+            padding: 2px 6px;
+            border-radius: 2px;
+            margin-right: 6px;
+            color: var(--text-secondary);
+        }
+
+        .rank-score {
+            font-size: 14px;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 10px;
+            }
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+            .search-bar {
+                display: none;
+            }
+            .hero {
+                height: 250px;
+            }
+            .hero-title {
+                font-size: 24px;
+            }
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .movie-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .ranking-list .rank-info {
+                display: none; /* Hide text on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+                </svg>
+                80s<span>影视</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">电影</a></li>
+                    <li><a href="#">电视剧</a></li>
+                    <li><a href="#">综艺</a></li>
+                    <li><a href="#">纪录片</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索80年代经典...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="https://picsum.photos/seed/hero80s/1200/400" alt="经典电影海报" class="hero-bg">
+            <div class="hero-content">
+                <span class="hero-tag">本周推荐</span>
+                <h1 class="hero-title">霸王别姬</h1>
+                <p class="hero-desc">张国荣、张丰毅、巩俐主演。中国电影史上的巅峰之作，跨越半个世纪的悲欢离合，展现了京剧艺术与时代变迁的宏大画卷。</p>
+                <div>
+                    <a href="#" class="btn">立即观看</a>
+                    <a href="#" class="btn btn-outline">收藏</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">内容分类</h2>
+            </div>
+            <div class="category-grid">
+                <div class="category-item">
+                    <span class="category-icon">🎬</span>
+                    <span class="category-name">经典港片</span>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">🎭</span>
+                    <span class="category-name">国产老剧</span>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">🌏</span>
+                    <span class="category-name">欧美怀旧</span>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">📺</span>
+                    <span class="category-name">经典综艺</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hot Movies -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">热门电影</h2>
+                <a href="#" class="view-all">查看全部 &gt;</a>
+            </div>
+            <div class="movie-grid">
+                <!-- Movie Card 1 -->
+                <article class="movie-card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/movie1/200/300" alt="电影海报">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">阿飞正传</h3>
+                        <div class="card-meta">
+                            <span>1990</span>
+                            <span class="quality-tag">HD</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Movie Card 2 -->
+                <article class="movie-card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/movie2/200/300" alt="电影海报">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">英雄本色</h3>
+                        <div class="card-meta">
+                            <span>1986</span>
+                            <span class="quality-tag">HD</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Movie Card 3 -->
+                <article class="movie-card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/movie3/200/300" alt="电影海报">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">大话西游</h3>
+                        <div class="card-meta">
+                            <span>1995</span>
+                            <span class="quality-tag">HD</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Movie Card 4 -->
+                <article class="movie-card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/movie4/200/300" alt="电影海报">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">活着</h3>
+                        <div class="card-meta">
+                            <span>1994</span>
+                            <span class="quality-tag">HD</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Movie Card 5 -->
+                <article class="movie-card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/movie5/200/300" alt="电影海报">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">花样年华</h3>
+                        <div class="card-meta">
+                            <span>2000</span>
+                            <span class="quality-tag">HD</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Movie Card 6 -->
+                <article class="movie-card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/movie6/200/300" alt="电影海报">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">赌神</h3>
+                        <div class="card-meta">
+                            <span>1989</span>
+                            <span class="quality-tag">HD</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Movie Card 7 -->
+                <article class="movie-card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/movie7/200/300" alt="电影海报">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">无间道</h3>
+                        <div class="card-meta">
+                            <span>2002</span>
+                            <span class="quality-tag">HD</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Movie Card 8 -->
+                <article class="movie-card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/movie8/200/300" alt="电影海报">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">大腕</h3>
+                        <div class="card-meta">
+                            <span>2001</span>
+                            <span class="quality-tag">HD</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Top Ranking -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">经典榜单</h2>
+                <a href="#" class="view-all">查看全部 &gt;</a>
+            </div>
+            <div class="ranking-list">
+                <div class="ranking-item">
+                    <div class="rank-num top-1">1</div>
+                    <img src="https://picsum.photos/seed/rank1/50/70" alt="Rank 1" class="rank-poster">
+                    <div class="rank-info">
+                        <div class="rank-title">肖申克的救赎</div>
+                        <div class="rank-tags"><span>剧情</span><span>犯罪</span></div>
+                    </div>
+                    <div class="rank-score">9.7</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="rank-num top-2">2</div>
+                    <img src="https://picsum.photos/seed/rank2/50/70" alt="Rank 2" class="rank-poster">
+                    <div class="rank-info">
+                        <div class="rank-title">泰坦尼克号</div>
+                        <div class="rank-tags"><span>爱情</span><span>灾难</span></div>
+                    </div>
+                    <div class="rank-score">9.4</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="rank-num top-3">3</div>
+                    <img src="https://picsum.photos/seed/rank3/50/70" alt="Rank 3" class="rank-poster">
+                    <div class="rank-info">
+                        <div class="rank-title">阿甘正传</div>
+                        <div class="rank-tags"><span>剧情</span><span>励志</span></div>
+                    </div>
+                    <div class="rank-score">9.5</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="rank-num">4</div>
+                    <img src="https://picsum.photos/seed/rank4/50/70" alt="Rank 4" class="rank-poster">
+                    <div class="rank-info">
+                        <div class="rank-title">乱世佳人</div>
+                        <div class="rank-tags"><span>爱情</span><span>历史</span></div>
+                    </div>
+                    <div class="rank-score">9.3</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="rank-num">5</div>
+                    <img src="https://picsum.photos/seed/rank5/50/70" alt="Rank 5" class="rank-poster">
+                    <div class="rank-info">
+                        <div class="rank-title">罗马假日</div>
+                        <div class="rank-tags"><span>爱情</span><span>喜剧</span></div>
+                    </div>
+                    <div class="rank-score">9.2</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classic TV Section -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">怀旧电视剧</h2>
+                <a href="#" class="view-all">查看全部 &gt;</a>
+            </div>
+            <div class="movie-grid">
+                <article class="movie-card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/tv1/200/300" alt="电视剧海报">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">渴望</h3>
+                        <div class="card-meta">
+                            <span>1990</span>
+                            <span>TV Series</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="movie-card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/tv2/200/300" alt="电视剧海报">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">上海滩</h3>
+                        <div class="card-meta">
+                            <span>1980</span>
+                            <span>TV Series</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="movie-card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/tv3/200/300" alt="电视剧海报">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">西游记</h3>
+                        <div class="card-meta">
+                            <span>1986</span>
+                            <span>TV Series</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="movie-card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/tv4/200/300" alt="电视剧海报">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">编辑部的故事</h3>
+                        <div class="card-meta">
+                            <span>1992</span>
+                            <span>TV Series</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于80s</h4>
+                <ul>
+                    <li><a href="#">网站简介</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>内容分类</h4>
+                <ul>
+                    <li><a href="#">经典港片</a></li>
+                    <li><a href="#">国产老剧</a></li>
+                    <li><a href="#">欧美怀旧</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">播放器使用</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">新浪微博</a></li>
+                    <li><a href="#">微信公众号</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 80s影视怀旧站. All Rights Reserved. 仅供怀旧学习交流使用，请于下载后24小时内删除。</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
