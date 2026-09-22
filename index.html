@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="羞羞的漫画 - 提供最新热门日漫、韩漫、国漫在线阅读平台，包含独家连载、高清画质及个性化推荐服务。">
+    <meta name="keywords" content="羞羞的漫画,在线漫画,日漫,韩漫,漫画阅读,免费漫画">
+    <title>羞羞的漫画-最新热门日漫韩漫在线阅读平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4d6d;
+            --secondary-color: #ff8fa3;
+            --dark-bg: #1a1a2e;
+            --card-bg: #16213e;
+            --text-main: #ffffff;
+            --text-sub: #b8b8b8;
+            --accent-yellow: #ffb703;
+            --spacing-unit: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .search-box {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 4px 12px;
+            width: 200px;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            width: 100%;
+            padding: 4px;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, #2c2c54 0%, #474787 100%);
+            display: flex;
+            align-items: center;
+            padding: 0 var(--spacing-unit);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(to right, #ff4d6d, #ffb703);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            color: var(--text-sub);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            max-width: 500px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 300px;
+            background-image: url('https://picsum.photos/seed/manga/600/400');
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .hero-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26,26,46,0.8), transparent);
+            border-radius: 12px;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px var(--spacing-unit);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 16px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .section-more {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        /* Grid System */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        /* Card Component */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .card-cover {
+            position: relative;
+            padding-top: 140%; /* 5:7 Aspect Ratio */
+            overflow: hidden;
+        }
+
+        .card-cover img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-cover img {
+            transform: scale(1.05);
+        }
+
+        .tag {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .card-info {
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-views {
+            color: var(--accent-yellow);
+        }
+
+        /* Ranking Section */
+        .ranking-list {
+            list-style: none;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .ranking-item:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-right: 12px;
+        }
+
+        .rank-num.top-1 { background-color: var(--accent-yellow); color: #000; }
+        .rank-num.top-2 { background-color: #b8b8b8; color: #000; }
+        .rank-num.top-3 { background-color: #cd7f32; color: #000; }
+
+        .rank-info {
+            flex: 1;
+        }
+
+        .rank-title {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .rank-tags span {
+            font-size: 0.7rem;
+            background: rgba(255,255,255,0.1);
+            padding: 1px 4px;
+            border-radius: 2px;
+            margin-right: 4px;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            background: rgba(255,255,255,0.03);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .feature-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f0f1a;
+            padding: 40px var(--spacing-unit) 20px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.3);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+
+            .search-box {
+                display: none;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">羞羞的漫画 <span>Xiuxiu</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">日韩漫画</a></li>
+                    <li><a href="#">国产漫画</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">分类浏览</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索漫画名称...">
+                <button style="background:none; border:none; color:white; cursor:pointer;">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Banner -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>探索无限精彩<br>尽在羞羞的漫画</h1>
+                    <p>汇聚全网最新热门日漫、韩漫资源，高清画质，更新极速。随时随地，开启您的二次元阅读之旅。</p>
+                    <a href="#" class="hero-btn">立即开始阅读</a>
+                </div>
+                <div class="hero-img"></div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Daily Update Section -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">今日更新</h2>
+                    <a href="#" class="section-more">查看全部 ></a>
+                </div>
+                <div class="grid grid-4">
+                    <!-- Card 1 -->
+                    <article class="card">
+                        <div class="card-cover">
+                            <span class="tag">热门</span>
+                            <img src="https://picsum.photos/seed/manga1/300/420" alt="漫画封面">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">转生异世界成为魔物娘</h3>
+                            <div class="card-meta">
+                                <span>第128话</span>
+                                <span class="card-views">12.5w</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 2 -->
+                    <article class="card">
+                        <div class="card-cover">
+                            <span class="tag">完结</span>
+                            <img src="https://picsum.photos/seed/manga2/300/420" alt="漫画封面">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">霸道总裁的替身前妻</h3>
+                            <div class="card-meta">
+                                <span>全卷</span>
+                                <span class="card-views">45.2w</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 3 -->
+                    <article class="card">
+                        <div class="card-cover">
+                            <span class="tag">新番</span>
+                            <img src="https://picsum.photos/seed/manga3/300/420" alt="漫画封面">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">赛博朋克：边缘行者</h3>
+                            <div class="card-meta">
+                                <span>第15话</span>
+                                <span class="card-views">89.1w</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 4 -->
+                    <article class="card">
+                        <div class="card-cover">
+                            <span class="tag">连载</span>
+                            <img src="https://picsum.photos/seed/manga4/300/420" alt="漫画封面">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">深渊骑士传说</h3>
+                            <div class="card-meta">
+                                <span>第42话</span>
+                                <span class="card-views">33.0w</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-top: 60px;">
+                <!-- Hot Recommendations -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">热门推荐</h2>
+                        <a href="#" class="section-more">更多 ></a>
+                    </div>
+                    <div class="grid grid-4">
+                        <article class="card">
+                            <div class="card-cover"><img src="https://picsum.photos/seed/manga5/300/420" alt="封面"></div>
+                            <div class="card-info">
+                                <h3 class="card-title">恋爱模拟器</h3>
+                                <div class="card-meta"><span>恋爱</span> <span>2.1w</span></div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-cover"><img src="https://picsum.photos/seed/manga6/300/420" alt="封面"></div>
+                            <div class="card-info">
+                                <h3 class="card-title">末日废土</h3>
+                                <div class="card-meta"><span>科幻</span> <span>5.6w</span></div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-cover"><img src="https://picsum.photos/seed/manga7/300/420" alt="封面"></div>
+                            <div class="card-info">
+                                <h3 class="card-title">古风权谋</h3>
+                                <div class="card-meta"><span>历史</span> <span>8.9w</span></div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-cover"><img src="https://picsum.photos/seed/manga8/300/420" alt="封面"></div>
+                            <div class="card-info">
+                                <h3 class="card-title">校园生活</h3>
+                                <div class="card-meta"><span>日常</span> <span>1.2w</span></div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-cover"><img src="https://picsum.photos/seed/manga9/300/420" alt="封面"></div>
+                            <div class="card-info">
+                                <h3 class="card-title">恐怖悬疑</h3>
+                                <div class="card-meta"><span>惊悚</span> <span>3.4w</span></div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-cover"><img src="https://picsum.photos/seed/manga10/300/420" alt="封面"></div>
+                            <div class="card-info">
+                                <h3 class="card-title">奇幻冒险</h3>
+                                <div class="card-meta"><span>奇幻</span> <span>6.7w</span></div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Ranking Sidebar -->
+                <aside>
+                    <div class="section-header" style="margin-bottom: 15px;">
+                        <h2 class="section-title" style="font-size: 1.2rem;">周榜排行</h2>
+                    </div>
+                    <ul class="ranking-list">
+                        <li class="ranking-item">
+                            <span class="rank-num top-1">1</span>
+                            <div class="rank-info">
+                                <span class="rank-title">绝世唐门</span>
+                                <div class="rank-tags"><span>热血</span><span>玄幻</span></div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank-num top-2">2</span>
+                            <div class="rank-info">
+                                <span class="rank-title">斗罗大陆</span>
+                                <div class="rank-tags"><span>冒险</span><span>热血</span></div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank-num top-3">3</span>
+                            <div class="rank-info">
+                                <span class="rank-title">完美世界</span>
+                                <div class="rank-tags"><span>玄幻</span><span>战斗</span></div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank-num">4</span>
+                            <div class="rank-info">
+                                <span class="rank-title">遮天</span>
+                                <div class="rank-tags"><span>东方玄幻</span></div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank-num">5</span>
+                            <div class="rank-info">
+                                <span class="rank-title">吞噬星空</span>
+                                <div class="rank-tags"><span>科幻</span><span>修炼</span></div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank-num">6</span>
+                            <div class="rank-info">
+                                <span class="rank-title">神墓</span>
+                                <div class="rank-tags"><span>玄幻</span><span>复仇</span></div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank-num">7</span>
+                            <div class="rank-info">
+                                <span class="rank-title">长夜余火</span>
+                                <div class="rank-tags"><span>科幻</span><span>废土</span></div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank-num">8</span>
+                            <div class="rank-info">
+                                <span class="rank-title">深空彼岸</span>
+                                <div class="rank-tags"><span>仙侠</span><span>玄幻</span></div>
+                            </div>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+
+            <!-- Features Section -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">为什么选择我们</h2>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h4 class="feature-title">极速更新</h4>
+                        <p class="feature-desc">第一时间同步最新章节，追更不再等待。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <h4 class="feature-title">高清画质</h4>
+                        <p class="feature-desc">支持多倍速浏览，细节清晰，阅读体验极佳。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <h4 class="feature-title">全端同步</h4>
+                        <p class="feature-desc">手机、平板、电脑无缝切换，随时随地阅读。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="#" class="logo" style="margin-bottom: 15px; display:inline-block;">羞羞的漫画</a>
+                <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.8;">
+                    羞羞的漫画致力于为用户提供最优质的在线漫画阅读体验。我们收录了海量正版日韩漫画、国产原创漫画，涵盖恋爱、热血、悬疑、搞笑等多种题材。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>浏览分类</h4>
+                <ul>
+                    <li><a href="#">日韩漫画</a></li>
+                    <li><a href="#">国产漫画</a></li>
+                    <li><a href="#">欧美漫画</a></li>
+                    <li><a href="#">四格漫画</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">侵权投诉</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">新浪微博</a></li>
+                    <li><a href="#">官方QQ群</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 羞羞的漫画 Xiuxiu Manga. All Rights Reserved. 本站内容仅供学习交流使用。</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
