@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="国外搜索引擎大全 - 提供全球主流搜索引擎导航、英文搜索技巧、学术资源搜索及网络工具推荐，助您高效获取国际互联网信息。">
+    <meta name="keywords" content="国外搜索引擎大全,搜索引擎导航,英文搜索,学术搜索,网络工具">
+    <title>国外搜索引擎大全 - 全球搜索资源导航与工具指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-btn {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-search-box {
+            background: white;
+            border-radius: 50px;
+            padding: 8px;
+            display: inline-flex;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .hero-search-box select {
+            border: none;
+            border-right: 1px solid #ddd;
+            padding: 0 15px;
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            background: transparent;
+            outline: none;
+            cursor: pointer;
+            border-radius: 40px 0 0 40px;
+        }
+
+        .hero-search-box input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .hero-search-box button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .hero-search-box button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title .subtitle {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-sub);
+        }
+
+        /* Search Engines Grid */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .engine-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .engine-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .engine-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .engine-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 12px;
+            object-fit: cover;
+        }
+
+        .engine-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .engine-info .type {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            background: #eff6ff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .engine-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 20px;
+            min-height: 40px;
+        }
+
+        .engine-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            background: #f1f5f9;
+            color: var(--text-sub);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .engine-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            text-align: center;
+            padding: 8px 0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            margin-bottom: 60px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 16px;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .feature-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .feature-content p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 60px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            background: white;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: #f8fafc;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            display: none;
+            border-top: 1px solid transparent;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            padding-top: 16px;
+            border-top-color: var(--border-color);
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h5 {
+            color: white;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .search-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .header-inner {
+                padding: 0 10px;
+            }
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+                <span>SearchGuide</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#general">通用搜索</a></li>
+                    <li><a href="#academic">学术资源</a></li>
+                    <li><a href="#image">图片视频</a></li>
+                    <li><a href="#tools">实用工具</a></li>
+                </ul>
+            </nav>
+            <a href="#search-engine" class="search-btn btn btn-primary">开始搜索</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>国外搜索引擎大全</h1>
+            <p>汇聚全球优质搜索资源，助您突破网络限制，高效获取国际互联网信息。</p>
+            <form class="hero-search-box" id="quickSearchForm" onsubmit="handleSearch(event)">
+                <select id="engineSelect">
+                    <option value="https://www.google.com/search?q=">Google</option>
+                    <option value="https://search.brave.com/search?q=">Brave Search</option>
+                    <option value="https://duckduckgo.com/?q=">DuckDuckGo</option>
+                    <option value="https://www.bing.com/search?q=">Bing</option>
+                    <option value="https://www.youtube.com/results?search_query=">YouTube</option>
+                    <option value="https://scholar.google.com/scholar?q=">Google Scholar</option>
+                </select>
+                <input type="text" id="searchInput" placeholder="输入搜索关键词..." required>
+                <button type="submit">搜索</button>
+            </form>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- 通用搜索 -->
+        <section id="general" class="search-engine-section">
+            <div class="section-title">
+                <h2>通用搜索引擎</h2>
+                <span class="subtitle">日常信息检索首选</span>
+            </div>
+            <div class="grid-layout">
+                <!-- Google -->
+                <article class="engine-card">
+                    <div class="engine-header">
+                        <img src="https://picsum.photos/seed/google/40/40" alt="Google Logo" class="engine-icon">
+                        <div class="engine-info">
+                            <h3>Google</h3>
+                            <span class="type">综合搜索</span>
+                        </div>
+                    </div>
+                    <p class="engine-desc">全球最大、最通用的搜索引擎，索引量巨大，算法先进，适合绝大多数类型的查询。</p>
+                    <div class="engine-tags">
+                        <span class="tag">网页</span>
+                        <span class="tag">地图</span>
+                        <span class="tag">翻译</span>
+                    </div>
+                    <div class="engine-actions">
+                        <a href="https://www.google.com" target="_blank" class="btn btn-primary">访问官网</a>
+                    </div>
+                </article>
+
+                <!-- Bing -->
+                <article class="engine-card">
+                    <div class="engine-header">
+                        <img src="https://picsum.photos/seed/bing/40/40" alt="Bing Logo" class="engine-icon">
+                        <div class="engine-info">
+                            <h3>Bing</h3>
+                            <span class="type">微软产品</span>
+                        </div>
+                    </div>
+                    <p class="engine-desc">微软推出的搜索引擎，以精美的图片搜索和智能问答功能著称，界面简洁。</p>
+                    <div class="engine-tags">
+                        <span class="tag">必应</span>
+                        <span class="tag">图片</span>
+                        <span class="tag">AI助手</span>
+                    </div>
+                    <div class="engine-actions">
+                        <a href="https://www.bing.com" target="_blank" class="btn btn-primary">访问官网</a>
+                    </div>
+                </article>
+
+                <!-- DuckDuckGo -->
+                <article class="engine-card">
+                    <div class="engine-header">
+                        <img src="https://picsum.photos/seed/ddg/40/40" alt="DuckDuckGo Logo" class="engine-icon">
+                        <div class="engine-info">
+                            <h3>DuckDuckGo</h3>
+                            <span class="type">隐私保护</span>
+                        </div>
+                    </div>
+                    <p class="engine-desc">强调用户隐私保护，不追踪用户搜索记录，提供独特的“零知识”搜索体验。</p>
+                    <div class="engine-tags">
+                        <span class="tag">无痕</span>
+                        <span class="tag">聚合</span>
+                    </div>
+                    <div class="engine-actions">
+                        <a href="https://duckduckgo.com" target="_blank" class="btn btn-primary">访问官网</a>
+                    </div>
+                </article>
+
+                <!-- Brave Search -->
+                <article class="engine-card">
+                    <div class="engine-header">
+                        <img src="https://picsum.photos/seed/brave/40/40" alt="Brave Search Logo" class="engine-icon">
+                        <div class="engine-info">
+                            <h3>Brave Search</h3>
+                            <span class="type">独立搜索</span>
+                        </div>
+                    </div>
+                    <p class="engine-desc">由 Brave 浏览器公司推出的独立搜索引擎，旨在提供不偏向任何单一公司的中立结果。</p>
+                    <div class="engine-tags">
+                        <span class="tag">中立</span>
+                        <span class="tag">隐私</span>
+                    </div>
+                    <div class="engine-actions">
+                        <a href="https://search.brave.com" target="_blank" class="btn btn-primary">访问官网</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 学术资源 -->
+        <section id="academic" class="search-engine-section">
+            <div class="section-title">
+                <h2>学术与专业资源</h2>
+                <span class="subtitle">论文、科研与知识库</span>
+            </div>
+            <div class="grid-layout">
+                <!-- Google Scholar -->
+                <article class="engine-card">
+                    <div class="engine-header">
+                        <img src="https://picsum.photos/seed/scholar/40/40" alt="Google Scholar Logo" class="engine-icon">
+                        <div class="engine-info">
+                            <h3>Google Scholar</h3>
+                            <span class="type">学术检索</span>
+                        </div>
+                    </div>
+                    <p class="engine-desc">谷歌推出的学术搜索工具，覆盖广泛，可查找学术论文、书籍、预印本及引用信息。</p>
+                    <div class="engine-tags">
+                        <span class="tag">论文</span>
+                        <span class="tag">引用</span>
+                    </div>
+                    <div class="engine-actions">
+                        <a href="https://scholar.google.com" target="_blank" class="btn btn-primary">访问官网</a>
+                    </div>
+                </article>
+
+                <!-- IEEE Xplore -->
+                <article class="engine-card">
+                    <div class="engine-header">
+                        <img src="https://picsum.photos/seed/ieee/40/40" alt="IEEE Logo" class="engine-icon">
+                        <div class="engine-info">
+                            <h3>IEEE Xplore</h3>
+                            <span class="type">工程技术</span>
+                        </div>
+                    </div>
+                    <p class="engine-desc">电气电子工程师学会（IEEE）的数字图书馆，收录大量电气、计算机及工程领域的期刊会议论文。</p>
+                    <div class="engine-tags">
+                        <span class="tag">计算机</span>
+                        <span class="tag">电子</span>
+                    </div>
+                    <div class="engine-actions">
+                        <a href="https://ieeexplore.ieee.org" target="_blank" class="btn btn-primary">访问官网</a>
+                    </div>
+                </article>
+
+                <!-- arXiv -->
+                <article class="engine-card">
+                    <div class="engine-header">
+                        <img src="https://picsum.photos/seed/arxiv/40/40" alt="arXiv Logo" class="engine-icon">
+                        <div class="engine-info">
+                            <h3>arXiv</h3>
+                            <span class="type">预印本</span>
+                        </div>
+                    </div>
+                    <p class="engine-desc">物理、数学、计算机科学等领域的免费预印本服务器，许多前沿研究在此首发。</p>
+                    <div class="engine-tags">
+                        <span class="tag">物理</span>
+                        <span class="tag">数学</span>
+                        <span class="tag">CS</span>
+                    </div>
+                    <div class="engine-actions">
+                        <a href="https://arxiv.org" target="_blank" class="btn btn-primary">访问官网</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 图片与视频 -->
+        <section id="image" class="search-engine-section">
+            <div class="section-title">
+                <h2>图片与视频</h2>
+                <span class="subtitle">视觉内容与流媒体</span>
+            </div>
+            <div class="grid-layout">
+                <article class="engine-card">
+                    <div class="engine-header">
+                        <img src="https://picsum.photos/seed/youtube/40/40" alt="YouTube Logo" class="engine-icon">
+                        <div class="engine-info">
+                            <h3>YouTube</h3>
+                            <span class="type">视频平台</span>
+                        </div>
+                    </div>
+                    <p class="engine-desc">全球最大的视频分享平台，包含海量教程、娱乐内容及官方发布信息。</p>
+                    <div class="engine-actions">
+                        <a href="https://www.youtube.com" target="_blank" class="btn btn-primary">访问官网</a>
+                    </div>
+                </article>
+
+                <article class="engine-card">
+                    <div class="engine-header">
+                        <img src="https://picsum.photos/seed/pixabay/40/40" alt="Pixabay Logo" class="engine-icon">
+                        <div class="engine-info">
+                            <h3>Pixabay</h3>
+                            <span class="type">图库</span>
+                        </div>
+                    </div>
+                    <p class="engine-desc">免费的高质量矢量图、照片及插画素材库，支持商业使用，无需署名。</p>
+                    <div class="engine-tags">
+                        <span class="tag">免费</span>
+                        <span class="tag">矢量</span>
+                    </div>
+                    <div class="engine-actions">
+                        <a href="https://pixabay.com" target="_blank" class="btn btn-primary">访问官网</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 功能特性 -->
+        <section class="features">
+            <div class="section-title">
+                <h2>使用指南与技巧</h2>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h4>掌握高级语法</h4>
+                        <p>善用引号精确匹配、减号排除关键词、site:限定域名等指令，大幅提升搜索精度。</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h4>切换国际网络环境</h4>
+                        <p>访问国外网站时，请确保网络连接稳定且符合当地法律法规，建议使用官方渠道进行访问。</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h4>注意网络安全</h4>
+                        <p>在搜索引擎中输入敏感信息时，请注意辨别网站安全性，避免在非正规网站泄露个人隐私。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="section-title">
+                <h2>常见问题</h2>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>为什么搜索结果与国内访问的不一样？</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>这是由于不同地区的服务器部署、内容审查策略以及网络环境差异造成的。国外搜索引擎主要面向全球用户，其索引的网站和展示的排序算法具有全球性特征。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>如何判断一个搜索引擎是否安全？</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>可以通过查看网站的SSL证书（地址栏是否有锁形图标）、查看网站的备案信息（如果支持）、以及通过第三方安全检测工具来评估其安全性。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>除了Google，还有哪些值得推荐的搜索引擎？</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>如果您注重隐私，可以尝试 DuckDuckGo 或 Brave Search；如果您需要微软生态的整合体验，Bing 是不错的选择；如果需要学术支持，Google Scholar 是权威来源。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col" style="flex: 2; min-width: 300px;">
+                    <h5>关于 SearchGuide</h5>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        SearchGuide 致力于为用户提供最全面、最实用的国外搜索引擎导航服务。我们精选全球主流搜索工具，帮助用户更高效地获取信息。
+                    </p>
+                </div>
+                <div class="footer-col" style="flex: 1; min-width: 150px;">
+                    <h5>快速链接</h5>
+                    <ul>
+                        <li><a href="#general">综合搜索</a></li>
+                        <li><a href="#academic">学术资源</a></li>
+                        <li><a href="#image">图片视频</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" style="flex: 1; min-width: 150px;">
+                    <h5>帮助中心</h5>
+                    <ul>
+                        <li><a href="#">使用指南</a></li>
+                        <li><a href="#">网站地图</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 SearchGuide. All rights reserved. 本站仅提供导航服务，不存储任何实际搜索数据。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 交互逻辑
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                
+                // 关闭其他打开的项
+                document.querySelectorAll('.faq-item').forEach(child => {
+                    if (child !== parent) {
+                        child.classList.remove('active');
+                    }
+                });
+
+                // 切换当前项
+                parent.classList.toggle('active');
+            });
+        });
+
+        // 搜索框逻辑
+        function handleSearch(event) {
+            event.preventDefault();
+            const select = document.getElementById('engineSelect');
+            const input = document.getElementById('searchInput');
+            const url = select.value + encodeURIComponent(input.value);
+            
+            if (input.value.trim()) {
+                window.open(url, '_blank');
+            }
+        }
+
+        // 导航平滑滚动
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+                      </html>
